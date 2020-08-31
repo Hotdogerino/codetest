@@ -49,6 +49,11 @@ public class FakePersonDataAccessService implements PersonDao
     }
 
     @Override
+    public int deletePersonByName(UUID ID, String name) {
+        return 0;
+    }
+
+    @Override
     public Optional<Person> selectPersonById(UUID ID) {
         return DB.stream().filter(person -> person.getID().equals(ID)).findFirst();
     }

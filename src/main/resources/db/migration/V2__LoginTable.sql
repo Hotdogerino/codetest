@@ -1,0 +1,5 @@
+CREATE TABLE login (
+   user_id BIGINT NOT NULL,
+   password VARCHAR(100) NOT NULL PRIMARY KEY,
+   username VARCHAR(100) NOT NULL
+);

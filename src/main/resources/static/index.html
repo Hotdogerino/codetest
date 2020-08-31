@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html lang="">
 <body>
-	<h1>The input element</h1>
+	<h1>Registration</h1>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script src="Requests.js"></script>
-	<button type="button" onclick="GetFetchPost()">Get Request</button>
-	<label for="TextBoxName">Name:</label>
+	<script src="Wait.js"></script>
+	<label for="TextBoxName">Full name:</label>
 	<input type="text" id="TextBoxName" /><br /><br />
-	<button type="button" onclick="PostFetchPost()">Post Request</button>
-	<label for="TextBoxID">ID:</label>
-	<input type="text" id="TextBoxID" /><br /><br />
-	<button type="button" onclick="DeleteFetchPost()">Delete Request</button>
-	<label for="TextBoxIDForPut">ID to edit:</label>
-	<input type="text" id="TextBoxIDForPut" /><br /><br />
-	<label for="TextBoxIDForPutName">Name to edit:</label>
-	<input type="text" id="TextBoxIDForPutName" /><br /><br />
-	<button type="button" onclick="PutFetchPost()">Delete Request</button>
-	<div id="myData"></div>
+	<button type="button" onclick="PostFetchPost()" onclick ="GetFetchPostCount()" >Post Request</button>
+	<button id="countButton" type="button" onclick ="GetFetchPostCount()" >Timer</button>
+    <p id="countdown"></p>
 </body>
 </html>

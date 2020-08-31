@@ -41,10 +41,18 @@ public class PersonController
     {
         personService.deletePerson(id);
     }
+    public void deletePersonByName(@PathVariable("id") UUID id, @PathVariable("name") String name)
+    {
+        personService.deletePersonByName(id, name);
+    }
     @PutMapping(path = "{id}")
     public void updatePerson(@PathVariable("id") UUID id,@Valid @NotNull  @RequestBody Person personToUpdate)
     {
         personService.updatePerson(id, personToUpdate);
+    }
+    public void countPerson()
+    {
+
     }
 
 

@@ -38,6 +38,10 @@ public class PersonService
     {
         return personDao.deletePersonById(id);
     }
+    public int deletePersonByName(UUID id, String name)
+    {
+        return personDao.deletePersonByName(id, name);
+    }
     public int updatePerson(UUID id, Person newPerson)
     {
         return personDao.updatePersonById(id, newPerson);

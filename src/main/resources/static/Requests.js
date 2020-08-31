@@ -38,8 +38,8 @@ function PostFetchPost() {
 function DeleteFetchPost()
 {
     const textBoxId = document.getElementById('TextBoxID').value;
-    axios.delete('/api/v1/person/', {
-        id: textBoxId
+    axios.delete('/api/v1/person/'+ textBoxId, {
+
 
     })
         .then(function (response) {
@@ -51,10 +51,10 @@ function DeleteFetchPost()
 }
 function PutFetchPost()
 {
-    const textBoxId = document.getElementById('TextBoxID').value;
+    const textBoxId = document.getElementById('TextBoxIDForPut').value;
     const textBoxName = document.getElementById('TextBoxIDForPutName').value;
-    axios.put('/api/v1/person/', {
-        id: textBoxId,
+    axios.put('/api/v1/person/'+textBoxId, {
+
         name: textBoxName
 
     })

@@ -50,6 +50,23 @@ public class PersonDataAccessService implements PersonDao{
         int count = jdbcTemplate.update(sql, ID );
         return count;
     }
+    @Override
+    public int deletePersonByName(UUID ID, String name)
+    {
+        final String sql = "DELETE FROM person WHERE name = ?";
+        Optional<Person> personMaybe = selectPersonById(ID);
+        if (personMaybe.isEmpty()) {
+            return 0;
+        }
+        int count = jdbcTemplate.update(sql, name);
+        return count;
+    }
+    public int countPeople()
+    {
+        final String sql = "SELECT COUNT(*) FROM person";
+        int count = jdbcTemplate.queryForObject(sql, Integer.class);
+        return count;
+    }
 
     @Override
     public int updatePersonById(UUID ID, Person updatePerson)
