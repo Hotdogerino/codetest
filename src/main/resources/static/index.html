@@ -1,19 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="">
 <body>
 
 <h1>The input element</h1>
-
-<form action="/action_page.php">
-    <label for="fname">First name:</label>
-    <input type="text" id="fname" name="fname"><br><br>
-    <label for="lname">Last name:</label>
-    <input type="text" id="lname" name="lname"><br><br>
-    <input type="submit" value="Submit">
-</form>
-
-<p>Click the "Submit" button and the form-data will be sent to a page on the
-    server called "action_page.php".</p>
-
+<script src="Requests.js"></script>
+<button type="button" onclick=GetFetchPost()>Get Request</button>
+<label for="TextBoxName">First name:</label>
+<input type="text" id="TextBoxName"><br><br>
+<button type="button" onclick=PostFetchPost()>Post Request</button>
+<div id="myData"></div>
 </body>
 </html>
