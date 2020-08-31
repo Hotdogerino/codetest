@@ -24,18 +24,44 @@ function appendData(data) {
 
 function PostFetchPost() {
     const textBoxName = document.getElementById('TextBoxName').value;
-    fetch("http://localhost:8080/api/v1/person/", {
-        "method": "POST",
-        "headers": {
-            "content-type": "application/json"
-        },
-        "body": {
-            "name": textBoxName
-        }
-    }).then(response => {
-        console.log(response);
+    axios.post('/api/v1/person/', {
+        name: textBoxName
+
     })
-        .catch(err => {
-            console.error(err);
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+function DeleteFetchPost()
+{
+    const textBoxId = document.getElementById('TextBoxID').value;
+    axios.delete('/api/v1/person/', {
+        id: textBoxId
+
+    })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+function PutFetchPost()
+{
+    const textBoxId = document.getElementById('TextBoxID').value;
+    const textBoxName = document.getElementById('TextBoxIDForPutName').value;
+    axios.put('/api/v1/person/', {
+        id: textBoxId,
+        name: textBoxName
+
+    })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
         });
 }
