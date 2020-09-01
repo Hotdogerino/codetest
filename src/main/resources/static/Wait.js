@@ -1,4 +1,10 @@
-function GetFetchPostCount() {
+let timeLeft;
+let button = document.getElementById("countButton");
+let hasTimerStarted = false;
+let interval;
+let count;
+
+function GetPostCount() {
     fetch("http://localhost:8080/api/v1/person/", {
         "method": "GET",
         "headers": {}
@@ -7,34 +13,45 @@ function GetFetchPostCount() {
     })
         .then(function (data) {
             EstimatedTime(data);
-        })
+        }).then(function (data) {
+        StartInterval(data);
+    })
         .catch(function (err) {
             console.log(err);
         });
 }
 
-let timeLeft;
 
 function EstimatedTime(data)
 {
-    timeLeft = data.length*3*60
+    if (hasTimerStarted == false) {
+        count = data.length
+        timeLeft = count * 3 * 60
+    }
+}
+
+function StartInterval()
+{
+    if (hasTimerStarted == false)
+    {
+        interval = setInterval(EstimatedTimeCount, 1000)
+        hasTimerStarted = true
+    }
 
 
 }
-window.onload = function() {
-    document.getElementById('countButton').onclick = function () {
-        console.log("clicked")
-        setInterval(EstimatedTimeCount, 1000)
-    }
-};
 
 
 function EstimatedTimeCount()
 {
-
     var div = document.getElementById("countdown")
     const minutes = Math.floor(timeLeft/60)
     let seconds = timeLeft%60
-    div.innerHTML = 'Time before meeting' + `${minutes}:${seconds}`;
+    div.innerHTML = 'Time before meeting(estimated): ' + `${minutes}:${seconds}`;
     timeLeft--
+}
+function cancelInterval()
+{
+    cancelInterval(interval)
+    timeLeft = count*3*60
 }
