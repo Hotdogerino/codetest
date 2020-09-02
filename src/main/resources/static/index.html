@@ -8,9 +8,12 @@
 	<label for="TextBoxName">Full name:</label>
 	<input type="text" id="TextBoxName" /><br /><br />
 	<button type="button" onclick="PostFetchPost()" >Post Request</button>
-	<button id="countButton" type="button" onclick="GetPostCount()">Timer</button>
     <p id="countdown"></p>
-	<button type="button" onclick="GetFetchPost()" >get Request</button>
+	<button id="buttonID" disabled type="button" onclick="GetFetchPost()" >Get your id</button>
+	<label disabled for="TextBoxID" id="labelID"></label>
+	<input disabled type="text" id="TextBoxID" /><br /><br />
+	<button id="buttonCancel" disabled type="button" onclick="DeleteFetch()" >Delete meeting</button>
 <div id="myData"></div>
+	<p><a href="display.html">Visit W3Schools.com!</a></p>
 </body>
 </html>

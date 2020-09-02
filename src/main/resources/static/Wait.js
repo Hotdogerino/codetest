@@ -52,6 +52,6 @@ function EstimatedTimeCount()
 }
 function cancelInterval()
 {
-    cancelInterval(interval)
+    clearInterval(interval)
     timeLeft = count*3*60
 }
